@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Expense</title>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.11.0/css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="grey lighten-3">
+
+  <!--Main Navigation-->
+  <header>
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+      <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" target="_blank">
+          <strong class="blue-text">Expense </strong>
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link waves-effect" href="#">Dashboard
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">Tables</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
+                target="_blank">Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Benzina</a>
+            </li>
+          </ul>
+		  
+		  <ul class="navbar-nav nav-flex-icons">
+			<li class="nav-item">
+              <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Logout</a>
+            </li>
+		  </ul>
+
+        </div>
+
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+    <div class="container-fluid mt-5">
+
+      <!-- Heading -->
+      <div class="card mb-4 wow fadeIn">
+      </div>
+      <!-- Heading -->
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+
+        <!--Grid column-->
+		<div class="col">
+			<button type="button" class="block btn btn-success btn" data-toggle="modal" data-target="#Entrata">IN</button>
+		</div>
+		<div class="col">
+			<button type="button" class="block btn btn-danger btn" data-toggle="modal" data-target="#Uscita">OUT</button>
+		</div>
+
+        <!--Grid column-->
+</div>
+      <!--Grid row-->
+	  <div class="row wow fadeIn">
+	  <div class="col block">
+	  
+<div id="calendar"></div>
+	  </div>
+		</div>
+		<div class="row wow fadeIn">
+		<div class="col">
+			<button type="button" class="block btn btn-warning btn" data-toggle="modal" data-target="#Calendario">Calendario</button>
+		</div></div>
+		<div class="row wow fadeIn">
+		<div class="col">
+			<button type="button" class="block btn btn-success btn" data-toggle="modal" data-target="#Benzina">BENZINA</button>
+		</div>
+		</div>
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Card-->
+          <div class="card">
+
+            <!--Section: Modals-->
+            <section>
+              <!-- Central Modal Large Info-->
+              <div class="modal fade" id="Entrata" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-notify modal-success" role="document">
+                  <!--Content-->
+                  <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                      <p class="heading lead">INSERISCI Nuova ENTRATA</p>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                      </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+						<form action="/insert">
+						Costo: <input type="text" name="cost"><br>
+						Data: <input type="date" name="data"><br>
+						Refund o altro: <input type="text" name="cost"><br>
+						Categoria:<select name="Cat">
+							<option value="refund">Refund</option>
+							<option value="stipendio">Stipendio</option>
+							<option value="extra">Lavoro Extra</option>
+							<option value="vendita">Vendita</option>
+						</select><br>
+						<input type="submit" value="Submit">
+						</form>
+                      </div>
+
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer">
+                      <a role="button" class="btn btn-info">Save
+                        <i class="far fa-save ml-1"></i>
+                      </a>
+                      <a role="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">cancel</a>
+                    </div>
+                  </div>
+                  <!--/.Content-->
+                </div>
+              </div>
+              <!-- Central Modal Large Info-->
+                  </div>
+                  <!--/.Content-->
+                </div>
+              </div>
+
+              <!-- Full Height Modal Right Info Demo-->
+              <div class="modal fade" id="Benzina" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-notify modal-info" role="document">
+                  <!--Content-->
+                  <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                      <p class="heading lead">INSERISCI Benzina</p>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                      </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+						<form action="/insert">
+            Costo: <input type="text" name="cost"><br>
+            Costo per litro: <input type="text" name="cost"><br>
+						Data: <input type="date" name="data"><br>
+						Km Auto: <input type="text" name="cost"><br>
+						<br>
+						<input type="submit" value="Submit">
+						</form>
+                      </div>
+
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer">
+                      <a role="button" class="btn btn-info">Save
+                        <i class="far fa-save ml-1"></i>
+                      </a>
+                      <a role="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">cancel</a>
+                    </div>
+                  </div>
+                  <!--/.Content-->
+                </div>
+              </div>
+
+              <div class="modal fade" id="Calendario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-notify modal-warning" role="document">
+                  <!--Content-->
+                  <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                      <p class="heading lead">INSERISCI Evento Futuro </p>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                      </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+						<form action="/insert">
+						Costo: <input type="text" name="cost"><br>
+						Data: <input type="date" name="data"><br>
+						Refund o altro: <input type="text" name="cost"><br>
+						Categoria:<select name="Cat">
+							<option value="refund">Refund</option>
+							<option value="stipendio">Stipendio</option>
+							<option value="extra">Lavoro Extra</option>
+              <option value="vendita">Vendita</option>
+              <option value="vendita">Bollo</option>
+              <option value="vendita">Assicurazione</option>
+						</select><br>
+						<input type="submit" value="Submit">
+						</form>
+                      </div>
+
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer">
+                      <a role="button" class="btn btn-info">Save
+                        <i class="far fa-save ml-1"></i>
+                      </a>
+                      <a role="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">cancel</a>
+                    </div>
+                  </div>
+                  <!--/.Content-->
+                </div>
+              </div>
+              <!-- Central Modal Large Info-->
+                  </div>
+                  <!--/.Content-->
+                </div>
+              </div>
+              <!-- Full Height Modal Right Info Demo-->
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer class="page-footer text-center primary-color-dark darken-2 wow fadeIn">
+    <div class="footer-copyright py-3">
+      © 2020 Copyright:
+      <a>3D Volt</a>
+    </div>
+    <!--/.Copyright-->
+  </footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.11.0/js/mdb.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+  </script>
+
+</body>
+
+</html>
