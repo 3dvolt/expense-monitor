@@ -84,10 +84,7 @@
 
       <!--Grid row-->
       <div class="row wow fadeIn">
-
-        <!--Grid column-->
-
-        <!--Grid column-->
+	  
 		<div class="col">
 			<button type="button" class="block btn btn-success btn" data-toggle="modal" data-target="#Entrata">IN</button>
 		</div>
@@ -96,12 +93,11 @@
 		</div>
 
         <!--Grid column-->
-</div>
+	  </div>
       <!--Grid row-->
 	  <div class="row wow fadeIn">
 	  <div class="col block">
-	  
-<div id="calendar"></div>
+		<div id="calendar"></div>
 	  </div>
 		</div>
 		<div class="row wow fadeIn">
@@ -129,7 +125,52 @@
                   <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-                      <p class="heading lead">INSERISCI Nuova ENTRATA</p>
+                      <p class="heading lead">Nuova ENTRATA</p>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                      </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+						<form action="/insert">
+						Costo: <input type="text" name="cost"><br>
+						Data: <input type="date" name="data"><br>
+						Refund o altro: <input type="text" name="cost"><br>
+						Categoria:<select name="Cat">
+							<option value="refund">Refund</option>
+							<option value="stipendio">Stipendio</option>
+							<option value="extra">Lavoro Extra</option>
+							<option value="vendita">Vendita</option>
+						</select><br>
+						<input type="submit" value="Submit">
+						</form>
+                      </div>
+
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer">
+                      <a role="button" class="btn btn-info">Save
+                        <i class="far fa-save ml-1"></i>
+                      </a>
+                      <a role="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">cancel</a>
+                    </div>
+                  </div>
+                  <!--/.Content-->
+                </div>
+              </div>
+			  
+			  <div class="modal fade" id="Uscita" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-notify modal-danger" role="document">
+                  <!--Content-->
+                  <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                      <p class="heading lead">Nuova USCITA</p>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                       </button>
@@ -221,7 +262,7 @@
                   <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-                      <p class="heading lead">INSERISCI Evento Futuro </p>
+                      <p class="heading lead">Evento Futuro </p>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                       </button>
