@@ -11,5 +11,11 @@ def index():
 def fuel():
         return render_template('gasoline.html')
 
+@app.route('/logout')
+def logout():
+        return render_template('logout.html')
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=80, debug=False)
+
