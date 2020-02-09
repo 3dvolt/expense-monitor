@@ -26,3 +26,15 @@
 @media (max-width: 1199.98px) {
   .sidebar-fixed {
     display: none; } }
+
+#outer-div {
+width: 100%; 
+text-align: center;
+background-color: #0666a3 
+}
+#inner-div {
+display: inline-block; 
+margin: 0 auto;
+padding: 3px;
+background-color: #8ebf42
+}
