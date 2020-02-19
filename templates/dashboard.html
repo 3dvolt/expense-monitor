@@ -166,10 +166,10 @@
                       <div  class="text-center">
                         <i class="fas fa-gas-pump fa-4x mb-3 animated rotateIn"></i>
 						<form action="/insert" method="POST">
-						Costo: <input type="text" name="cost"><br>
-						Costo per litro: <input type="text" name="litcost"><br>
+						Costo: <input type="number" name="cost"><br>
+						Costo per litro: <input type="number" step="0.01" name="litcost"><br>
 						Data: <input type="date" name="data"><br>
-						Km Auto: <input type="text" name="totKm"><br>
+						Km Auto: <input type="number" name="totKm"><br>
                     <div>
                       <input class="btn btn-info" type="submit" value="Save"> 
                       <a role="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">cancel</a>
