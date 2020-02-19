@@ -19,7 +19,7 @@ def fuel():
         return render_template('gasoline.html')
         
 @app.route('/check',methods=["GET","POST"])
-def logout():
+def usercheck():
     if request.method == 'POST':
         email = request.form['user']
         password = request.form['psw']
