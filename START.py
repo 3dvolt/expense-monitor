@@ -3,10 +3,16 @@ from flask import Flask, render_template, request
 import mysql.connector
 
 app = Flask(__name__)
-mydb = mysql.connector.connect(
+select = mysql.connector.connect(
   host="localhost",
   user="reader",
   passwd="password",
+  database="Exp"
+)
+insert = mysql.connector.connect(
+  host="localhost",
+  user="inserter",
+  passwd="inSERT",
   database="Exp"
 )
 
@@ -23,7 +29,7 @@ def usercheck():
     if request.method == 'POST':
         email = request.form['user']
         password = request.form['psw']
-        mycursor = mydb.cursor()
+        mycursor = select.cursor()
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
         if len(myresult) == 1:
@@ -34,6 +40,17 @@ def usercheck():
 @app.route('/dashboard')
 def dashboard():
       	return render_template('dashboard.html')
+
+@app.route('/insert', methods=["GET","POST"])
+def benz():
+    if request.method == 'POST':
+        costo = request.form['cost']
+        costoLitro = request.form['litcost']
+        data = request.form['data']
+        kmauto = request.form['totKm']
+        mycursor = insert.cursor()
+        mycursor.execute("Insert into fuel values(default,%s ,%s ,%s ,%s )",(costoLitro,costo,kmauto,data,))
+
 
 @app.route('/logout')
 def logout():
