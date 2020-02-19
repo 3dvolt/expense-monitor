@@ -26,10 +26,10 @@ def logout():
         mycursor = mydb.cursor()
         mycursor.execute("SELECT * FROM user u WHERE u.username=%s and u.psw =%s",(email,password,))
         myresult = mycursor.fetchall()
-            if len(myresult) > 1:
-                return render_template('dashboard.html')
-            else:
-                return render_template('index.html')
+        if len(myresult) > 1:
+            return render_template('dashboard.html')
+        else:
+            return render_template('index.html')
 
 @app.route('/dashboard')
 def index():
