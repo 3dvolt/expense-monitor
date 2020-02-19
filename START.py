@@ -1,13 +1,14 @@
 import os
 from flask import Flask, render_template
-from flask_mysqldb import MySQL,MySQLdb
+import mysql.connector
 
 app = Flask(__name__)
-pp.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'reader'
-app.config['MYSQL_PASSWORD'] = 'password'
-app.config['MYSQL_DB'] = 'Exp'
-mysql = MySQL(app)
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="reader",
+  passwd="password"
+  database="Exp"
+)
 
 @app.route('/')
 def index():
@@ -22,9 +23,9 @@ def logout():
     if request.method == 'POST':
         email = request.form['user']
         password = request.form['psw']
-        curl = mysql.connection.cursor()
-        curl.execute("SELECT * FROM user u WHERE u.username=%s and u.psw =%s",(email,password,))
-        user = curl.fetchone()
+        mycursor = mydb.cursor()
+        mycursor.execute("SELECT * FROM user u WHERE u.username=%s and u.psw =%s",(email,password,))
+        myresult = mycursor.fetchall()
             if len(user) > 1:
                 return render_template('dashboard.html')
             else
