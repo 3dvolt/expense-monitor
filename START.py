@@ -49,7 +49,7 @@ def benz():
         data = request.form['data']
         kmauto = request.form['totKm']
         mycursor = insert.cursor()
-        mycursor.execute("Insert into fuel values(default, %s ,%s ,%s ,'%s')",(costoLitro,costo,kmauto,data,))
+        mycursor.execute("Insert into fuel values(default, %s ,%s ,%s ,%s)",(costoLitro,costo,kmauto,data,))
         return dashboard()
 
 @app.route('/logout')
