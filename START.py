@@ -4,7 +4,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
-def index():
+def login():
       	return render_template('index.html')
 
 @app.route('/fuel')
@@ -12,7 +12,7 @@ def fuel():
         return render_template('gasoline.html')
         
 @app.route('/check')
-def logout():
+def user():
         return render_template('dashboard.html')
 
 @app.route('/dashboard')
