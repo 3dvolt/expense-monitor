@@ -5,11 +5,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-      	return render_template('dashboard.html')
+      	return render_template('index.html')
 
 @app.route('/fuel')
 def fuel():
         return render_template('gasoline.html')
+        
+@app.route('/check')
+def logout():
+        return render_template('dashboard.html')
+
+@app.route('/dashboard')
+def index():
+      	return render_template('dashboard.html')
 
 @app.route('/logout')
 def logout():
