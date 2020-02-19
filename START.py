@@ -6,7 +6,7 @@ app = Flask(__name__)
 mydb = mysql.connector.connect(
   host="localhost",
   user="reader",
-  passwd="password"
+  passwd="password",
   database="Exp"
 )
 
@@ -26,9 +26,9 @@ def logout():
         mycursor = mydb.cursor()
         mycursor.execute("SELECT * FROM user u WHERE u.username=%s and u.psw =%s",(email,password,))
         myresult = mycursor.fetchall()
-            if len(user) > 1:
+            if len(myresult) > 1:
                 return render_template('dashboard.html')
-            else
+            else:
                 return render_template('index.html')
 
 @app.route('/dashboard')
