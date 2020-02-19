@@ -24,7 +24,7 @@ def logout():
         email = request.form['user']
         password = request.form['psw']
         mycursor = mydb.cursor()
-        mycursor.execute("SELECT * FROM user u WHERE u.username=%s and u.psw =%s",(email,password,))
+        mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
         if len(myresult) > 1:
             return render_template('dashboard.html')
@@ -32,7 +32,7 @@ def logout():
             return render_template('index.html')
 
 @app.route('/dashboard')
-def index():
+def dashboard():
       	return render_template('dashboard.html')
 
 @app.route('/logout')
