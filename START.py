@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import mysql.connector
 
 app = Flask(__name__)
@@ -26,8 +26,8 @@ def usercheck():
         mycursor = mydb.cursor()
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
-        if len(myresult) > 1:
-            return render_template('dashboard.html')
+        if len(myresult) == 1:
+            return dashboard()
         else:
             return render_template('index.html')
 
