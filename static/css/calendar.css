@@ -96,7 +96,6 @@ body {
 }
 
 .month {
-  /*overflow: hidden;*/
   opacity: 0;
 }
 
@@ -177,7 +176,6 @@ body {
   text-align: center;
   height: 12px;
   line-height: 6px;
-  overflow: hidden;
 }
 
 .day .day-events span {
@@ -234,7 +232,6 @@ body {
   height: 75px;
   padding: 7px 0;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .events.in {
