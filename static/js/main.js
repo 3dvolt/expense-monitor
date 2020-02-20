@@ -326,10 +326,10 @@
     { eventName: '25€ Zaino', calendar: 'Shopping', color: 'orange' },
     { eventName: '35€ Tv', calendar: 'Shopping', color: 'orange' },
 
-    { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue' },
-    { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue' },
-    { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue' },
-    { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue' },
+    { eventName: '1200 €', calendar: 'IN', color: 'blue' },
+    { eventName: '1300 €', calendar: 'IN', color: 'blue' },
+    { eventName: '1250 €', calendar: 'IN', color: 'blue' },
+    { eventName: '1400 €', calendar: 'IN', color: 'blue' },
 
     { eventName: 'School Play', calendar: 'Kids', color: 'yellow' },
     { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow' },
