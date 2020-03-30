@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.11.0/css/mdb.min.css" rel="stylesheet">
-<link href="C:/Users/diego/Documents/EXP/static/css/style.min.css" rel="stylesheet">
-<link href="C:/Users/diego/Documents/EXP/static/css/calendar.css" rel="stylesheet">
+<link href="C:/Users/diego/Documents/EXP/expense-monitor/static/css/style.min.css" rel="stylesheet">
+<link href="C:/Users/diego/Documents/EXP/expense-monitor/static/css/calendar.css" rel="stylesheet">
 <link href="{{ url_for('static',filename='css/style.min.css') }}" rel="stylesheet">
 <link href="{{ url_for('static',filename='css/calendar.css') }}" rel="stylesheet">
 </head>
@@ -27,11 +27,10 @@
     </nav>
 	 </nav>
 	   </header>
-<div class="text-center">
-                        <i class="fas fa-chart-line fa-4x mb-3"></i>
+		<div class="centerr">
 						<form action="/check" method="POST">
-						<p class="blue-text">Username:</p> <input type="text" name="user"><br>
-						<p class="blue-text">Password:</p> <input type="password" name="psw"><br>			
+						<p class="black-text">Username:</p> <input type="text" name="user"><br>
+						<p class="black-text">Password:</p> <input type="password" name="psw"><br>			
 						<br>
                         <div >
                       <input class="btn btn-info" type="submit" value="Save"> 
@@ -39,11 +38,6 @@
                     </form>
                      </div>
 	 </body>
-  <footer class="footer text-center primary-color-dark darken-2">
-    <div class="py-3">
-     <a> © 2020 Copyright: 3D Volt</a>
-    </div>
-  </footer>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
