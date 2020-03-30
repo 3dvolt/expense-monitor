@@ -42,15 +42,13 @@
       this.header.appendChild(left);
       this.el.appendChild(this.header);
     }
-
     this.title.innerHTML = this.current.format('MMMM YYYY');
   }
 
   Calendar.prototype.drawMonth = function() {
     var self = this;
-    
     this.events.forEach(function(ev) {
-     ev.date = self.current.clone().date(17);
+    ev.date = self.current.clone().date(ev.dates);
     });
     
     
@@ -300,24 +298,23 @@
 
 !function() {
   var data = [
-    { eventName: '55€ Amazon', calendar: 'Shopping', color: 'orange' },
-    { eventName: '15€ Computer', calendar: 'Shopping', color: 'orange' },
-    { eventName: '25€ Zaino', calendar: 'Shopping', color: 'orange' },
-    { eventName: '35€ Tv', calendar: 'Shopping', color: 'orange' },
+    { eventName: '55€ Amazon', calendar: 'Shopping', color: 'red', dates: '8',month:'5'},
+    { eventName: '15€ Computer', calendar: 'Shopping', color: 'red', dates: '10',month:'5' },
+    { eventName: '25€ Zaino', calendar: 'Shopping', color: 'red', dates: '2',month:'5' },
+    { eventName: '35€ Tv', calendar: 'Shopping', color: 'red', dates: '28',month:'5' },
 
-    { eventName: '1200€ stipendio', calendar: 'IN', color: 'blue' },
-    { eventName: '1300€ stipendio', calendar: 'IN', color: 'blue' },
-    { eventName: '1250€ stipendio', calendar: 'IN', color: 'blue' },
-    { eventName: '1400€ stipendio', calendar: 'IN', color: 'blue' },
+    { eventName: '1200€ stipendio', calendar: 'IN', color: 'green', dates: '11',month:'5' },
+    { eventName: '1300€ stipendio', calendar: 'IN', color: 'green', dates: '1',month:'5' },
+    { eventName: '1250€ stipendio', calendar: 'IN', color: 'green', dates: '25',month:'5' },
+    { eventName: '1400€ stipendio', calendar: 'IN', color: 'green', dates: '19',month:'5' },
 
-    { eventName: '40€', calendar: 'Benzina', color: 'green' },
-    { eventName: '35€', calendar: 'Benzina', color: 'green' },
-    { eventName: '30€', calendar: 'Benzina', color: 'green' },
-    { eventName: '45€', calendar: 'Benzina', color: 'green' }
+    { eventName: '40€', calendar: 'Benzina', color: 'blue', dates: '10',month:'4' },
+    { eventName: '35€', calendar: 'Benzina', color: 'blue', dates: '14',month:'4' },
+    { eventName: '30€', calendar: 'Benzina', color: 'blue', dates: '13',month:'5' },
+    { eventName: '45€', calendar: 'Benzina', color: 'blue', dates: '12',month:'5' }
   ];
 
-  
-
+ 
   function addDate(ev) {
     
   }
