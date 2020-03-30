@@ -6,6 +6,7 @@
     this.el = document.querySelector(selector);
     this.events = events;
     this.current = moment().date(1);
+	console.log(moment().date());
     this.draw();
     var current = document.querySelector('.today');
     if(current) {
@@ -50,8 +51,9 @@
     this.events.forEach(function(ev) {
     ev.date = self.current.clone().date(ev.dates);
     });
-    
-    
+	this.events.forEach(function(ev) {
+	console.log(ev.monthh);
+	});
     if(this.month) {
       this.oldMonth = this.month;
       this.oldMonth.className = 'month out ' + (self.next ? 'next' : 'prev');
@@ -92,7 +94,6 @@
   Calendar.prototype.fowardFill = function() {
     var clone = this.current.clone().add('months', 1).subtract('days', 1);
     var dayOfWeek = clone.day();
-
     if(dayOfWeek === 6) { return; }
 
     for(var i = dayOfWeek; i < 6 ; i++) {
@@ -102,7 +103,6 @@
 
   Calendar.prototype.currentMonth = function() {
     var clone = this.current.clone();
-
     while(clone.month() === this.current.month()) {
       this.drawDay(clone);
       clone.add('days', 1);
@@ -119,8 +119,6 @@
   Calendar.prototype.drawDay = function(day) {
     var self = this;
     this.getWeek(day);
-
-    //Outer Day
     var outer = createElement('div', this.getDayClass(day));
     outer.addEventListener('click', function() {
       self.openDay(this);
@@ -150,7 +148,6 @@
         }
         return memo;
       }, []);
-
       todaysEvents.forEach(function(ev) {
         var evSpan = createElement('span', ev.color);
         element.appendChild(evSpan);
@@ -298,20 +295,20 @@
 
 !function() {
   var data = [
-    { eventName: '55€ Amazon', calendar: 'Shopping', color: 'red', dates: '8',month:'5'},
-    { eventName: '15€ Computer', calendar: 'Shopping', color: 'red', dates: '10',month:'5' },
-    { eventName: '25€ Zaino', calendar: 'Shopping', color: 'red', dates: '2',month:'5' },
-    { eventName: '35€ Tv', calendar: 'Shopping', color: 'red', dates: '28',month:'5' },
+    { eventName: '55€ Amazon', calendar: 'Shopping', color: 'red', dates: '8',monthh:'5'},
+    { eventName: '15€ Computer', calendar: 'Shopping', color: 'red', dates: '10',monthh:'5' },
+    { eventName: '25€ Zaino', calendar: 'Shopping', color: 'red', dates: '2',monthh:'5' },
+    { eventName: '35€ Tv', calendar: 'Shopping', color: 'red', dates: '28',monthh:'5' },
 
-    { eventName: '1200€ stipendio', calendar: 'IN', color: 'green', dates: '11',month:'5' },
-    { eventName: '1300€ stipendio', calendar: 'IN', color: 'green', dates: '1',month:'5' },
-    { eventName: '1250€ stipendio', calendar: 'IN', color: 'green', dates: '25',month:'5' },
-    { eventName: '1400€ stipendio', calendar: 'IN', color: 'green', dates: '19',month:'5' },
+    { eventName: '1200€ stipendio', calendar: 'IN', color: 'green', dates: '11',monthh:'5' },
+    { eventName: '1300€ stipendio', calendar: 'IN', color: 'green', dates: '1',monthh:'5' },
+    { eventName: '1250€ stipendio', calendar: 'IN', color: 'green', dates: '25',monthh:'5' },
+    { eventName: '1400€ stipendio', calendar: 'IN', color: 'green', dates: '19',monthh:'5' },
 
-    { eventName: '40€', calendar: 'Benzina', color: 'blue', dates: '10',month:'4' },
-    { eventName: '35€', calendar: 'Benzina', color: 'blue', dates: '14',month:'4' },
-    { eventName: '30€', calendar: 'Benzina', color: 'blue', dates: '13',month:'5' },
-    { eventName: '45€', calendar: 'Benzina', color: 'blue', dates: '12',month:'5' }
+    { eventName: '40€', calendar: 'Benzina', color: 'blue', dates: '10',monthh:'4' },
+    { eventName: '35€', calendar: 'Benzina', color: 'blue', dates: '14',monthh:'4' },
+    { eventName: '30€', calendar: 'Benzina', color: 'blue', dates: '13',monthh:'5' },
+    { eventName: '45€', calendar: 'Benzina', color: 'blue', dates: '12',monthh:'5' }
   ];
 
  
