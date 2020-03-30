@@ -17,7 +17,6 @@
   }
 
   Calendar.prototype.draw = function() {
-    //Create Header
     this.drawHeader();
     this.drawMonth();
   }
@@ -51,7 +50,7 @@
     var self = this;
     
     this.events.forEach(function(ev) {
-     ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
+     ev.date = self.current.clone().date(17);
     });
     
     
@@ -134,7 +133,6 @@
 
     //Day Number
     var number = createElement('div', 'day-number', day.format('DD'));
-
 
     //Events
     var events = createElement('div', 'day-events');
@@ -221,6 +219,7 @@
       return memo;
     }, []);
 
+
     this.renderEvents(todaysEvents, details);
 
     arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + 'px';
@@ -306,15 +305,10 @@
     { eventName: '25€ Zaino', calendar: 'Shopping', color: 'orange' },
     { eventName: '35€ Tv', calendar: 'Shopping', color: 'orange' },
 
-    { eventName: '1200 €', calendar: 'IN', color: 'blue' },
-    { eventName: '1300 €', calendar: 'IN', color: 'blue' },
-    { eventName: '1250 €', calendar: 'IN', color: 'blue' },
-    { eventName: '1400 €', calendar: 'IN', color: 'blue' },
-
-    { eventName: 'School Play', calendar: 'Kids', color: 'yellow' },
-    { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow' },
-    { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow' },
-    { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow' },
+    { eventName: '1200€ stipendio', calendar: 'IN', color: 'blue' },
+    { eventName: '1300€ stipendio', calendar: 'IN', color: 'blue' },
+    { eventName: '1250€ stipendio', calendar: 'IN', color: 'blue' },
+    { eventName: '1400€ stipendio', calendar: 'IN', color: 'blue' },
 
     { eventName: '40€', calendar: 'Benzina', color: 'green' },
     { eventName: '35€', calendar: 'Benzina', color: 'green' },
