@@ -43,7 +43,7 @@ def usercheck():
 @app.route('/dashboard')
 def dashboard():
         print(userID)
-      	return render_template('dashboard.html')
+        return render_template('dashboard.html')
 
 @app.route('/insert', methods=["GET","POST"])
 def income():
