@@ -46,7 +46,7 @@ def dashboard():
         return render_template('dashboard.html')
 
 @app.route('/insert', methods=["GET","POST"])
-def income():
+def incomeOutgo():
     if request.method == 'POST':
         inout = request.form['INorOUT']
         costo = request.form['cost']
@@ -54,7 +54,7 @@ def income():
         #linked = request.form['linked']
         category = request.form['Cat']
         mycursor = insert.cursor()
-        mycursor.execute("insert into activity values(default, %s, %s, '-', %s, '-', %s, %s)",(inout,costo,data,category,userID,))
+        mycursor.execute("insert into activity values(default, %s, %s, '-', %s, %s, %s)",(inout,costo,data,category,userID,))
         insert.commit()
         return dashboard()
 
@@ -66,7 +66,7 @@ def benz():
         data = request.form['data']
         kmauto = request.form['totKm']
         mycursor = insert.cursor()
-        mycursor.execute("Insert into fuel values(default, %s ,%s ,%s ,%s)",(costoLitro,costo,kmauto,data,))
+        mycursor.execute("Insert into fuel values(default, %s ,%s ,%s ,%s ,%s)",(costoLitro,costo,kmauto,data,userID,))
         insert.commit()
         return dashboard()
 
