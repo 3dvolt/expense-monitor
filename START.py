@@ -54,7 +54,7 @@ def income():
         #linked = request.form['linked']
         category = request.form['Cat']
         mycursor = insert.cursor()
-        mycursor.execute("insert into activity values(default, %s, %s, %s, '_', %s, %s)",(inout,costo,data,category,userID,))
+        mycursor.execute("insert into activity values(default, %s, %s, '-', %s, '-', %s, %s)",(inout,costo,data,category,userID,))
         insert.commit()
         return dashboard()
 
