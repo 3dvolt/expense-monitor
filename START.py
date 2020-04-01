@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request
 import mysql.connector
 
-global userID;
+userID == 0;
 
 app = Flask(__name__)
 select = mysql.connector.connect(
@@ -35,7 +35,7 @@ def usercheck():
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
         if len(myresult) == 1:
-            userID == myresult[0][0]
+            userID = myresult[0][0]
             return dashboard()
         else:
             return render_template('index.html')
@@ -52,7 +52,7 @@ def income():
         costo = request.form['cost']
         data = request.form['data']
         linked = request.form['linked']
-        category = request.form['cat']
+        category = request.form['Cat']
         mycursor = insert.cursor()
         mycursor.execute("insert into activity values(default, %s, %s, %s, %s, %s)",(INOUT,costo,data,category,userID,))
         return dashboard()
