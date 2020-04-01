@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request
 import mysql.connector
 
-userID == 0;
+userID = 0;
 
 app = Flask(__name__)
 select = mysql.connector.connect(
