@@ -34,15 +34,15 @@ def usercheck():
         mycursor = select.cursor()
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
-        print(myresult)
-        userID = myresult
         if len(myresult) == 1:
+            userID == myresult[0][0]
             return dashboard()
         else:
             return render_template('index.html')
 
 @app.route('/dashboard')
 def dashboard():
+        print(userID)
       	return render_template('dashboard.html')
 
 @app.route('/insert', methods=["GET","POST"])
