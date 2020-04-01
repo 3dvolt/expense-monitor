@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request
 import mysql.connector
 
-userID = 1;
+userID = 1
 username="User"
 
 app = Flask(__name__)
@@ -28,9 +28,9 @@ def fuel():
         mycursor = select.cursor()
         mycursor.execute("SELECT f.data FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
         ultimoRif = mycursor.fetchall()
-        print(ultimoRif.strftime("%m/%d/%Y"))
+        print(ultimoRif)
         templateData = {
-					'ultimoRif' : ultimoRif.strftime("%m/%d/%Y"),
+					'ultimoRif' : ultimoRif,
 					'username' : username
 				}
         return render_template('gasoline.html',**templateData)
@@ -44,7 +44,9 @@ def usercheck():
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
         if len(myresult) == 1:
+            global userID
             userID = myresult[0][0]
+            global username
             username = myresult[0][1]
             return dashboard()
         else:
@@ -53,6 +55,7 @@ def usercheck():
 @app.route('/dashboard')
 def dashboard():
         print(userID)
+        print(username)
         return render_template('dashboard.html')
 
 @app.route('/insert', methods=["GET","POST"])
