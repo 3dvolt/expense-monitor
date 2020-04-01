@@ -24,6 +24,10 @@ def index():
 
 @app.route('/fuel')
 def fuel():
+        mycursor = select.cursor()
+        mycursor.execute("SELECT f.data FROM fuel f where FK_userId = %s order by desc LIMIT 1", (userID))
+        myresult = mycursor.fetchall()
+        print(myresult)
         return render_template('gasoline.html')
         
 @app.route('/check',methods=["GET","POST"])
