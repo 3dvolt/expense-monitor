@@ -48,13 +48,13 @@ def dashboard():
 @app.route('/insert', methods=["GET","POST"])
 def income():
     if request.method == 'POST':
-        INOUT = request.form['INorOUT']
+        inout = request.form['INorOUT']
         costo = request.form['cost']
         data = request.form['data']
-        linked = request.form['linked']
+        #linked = request.form['linked']
         category = request.form['Cat']
         mycursor = insert.cursor()
-        mycursor.execute("insert into activity values(default, %s, %s, %s, %s, %s)",(INOUT,costo,data,category,userID,))
+        mycursor.execute("insert into activity values(default, %s, %s, %s, %s, %s)",(inout,costo,data,category,userID,))
         return dashboard()
 
 @app.route('/insertgas', methods=["GET","POST"])
