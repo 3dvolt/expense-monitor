@@ -28,10 +28,10 @@ def fuel():
         mycursor = select.cursor()
         mycursor.execute("SELECT f.data FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
         ultimoRif = mycursor.fetchall()
-        print(ultimoRif)
+        print(str(ultimoRif))
         templateData = {
-					'ultimoRif' : ultimoRif,
-					'Username' : username
+					'ultimoRif' : str(ultimoRif),
+					'username' : username
 				}
         return render_template('gasoline.html',**templateData)
         
