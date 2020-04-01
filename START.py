@@ -34,9 +34,9 @@ def usercheck():
         mycursor = select.cursor()
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
-        userID == myresult
+        print(myresult)
+        userID = myresult
         if len(myresult) == 1:
-            print(myresult)
             return dashboard()
         else:
             return render_template('index.html')
