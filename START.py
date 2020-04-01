@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 import mysql.connector
 
 userID = 1;
+username="User"
 
 app = Flask(__name__)
 select = mysql.connector.connect(
@@ -25,10 +26,14 @@ def index():
 @app.route('/fuel')
 def fuel():
         mycursor = select.cursor()
-        mycursor.execute("SELECT f.data FROM fuel f where FK_userId = %s order by desc LIMIT 1", (userID))
-        myresult = mycursor.fetchall()
-        print(myresult)
-        return render_template('gasoline.html')
+        mycursor.execute("SELECT f.data FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
+        ultimoRif = mycursor.fetchall()
+        print(ultimoRif)
+        templateData = {
+					'ultimoRif' : ultimoRif,
+					'Username' : Username
+				}
+        return render_template('gasoline.html',**templateData)
         
 @app.route('/check',methods=["GET","POST"])
 def usercheck():
@@ -40,6 +45,7 @@ def usercheck():
         myresult = mycursor.fetchall()
         if len(myresult) == 1:
             userID = myresult[0][0]
+            username = myresult[0][1]
             return dashboard()
         else:
             return render_template('index.html')
