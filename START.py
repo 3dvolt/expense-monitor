@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request
 import mysql.connector
 
-userID = 0;
+userID = 1;
 
 app = Flask(__name__)
 select = mysql.connector.connect(
@@ -54,7 +54,8 @@ def income():
         #linked = request.form['linked']
         category = request.form['Cat']
         mycursor = insert.cursor()
-        mycursor.execute("insert into activity values(default, %s, %s, %s, %s, %s)",(inout,costo,data,category,userID,))
+        mycursor.execute("insert into activity values(default, %s, %s, %s, '_', %s, %s)",(inout,costo,data,category,userID,))
+        insert.commit()
         return dashboard()
 
 @app.route('/insertgas', methods=["GET","POST"])
@@ -66,6 +67,7 @@ def benz():
         kmauto = request.form['totKm']
         mycursor = insert.cursor()
         mycursor.execute("Insert into fuel values(default, %s ,%s ,%s ,%s)",(costoLitro,costo,kmauto,data,))
+        insert.commit()
         return dashboard()
 
 @app.route('/logout')
