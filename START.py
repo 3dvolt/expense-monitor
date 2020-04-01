@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, request
 import mysql.connector
 
+global userID;
+
 app = Flask(__name__)
 select = mysql.connector.connect(
   host="localhost",
@@ -32,7 +34,9 @@ def usercheck():
         mycursor = select.cursor()
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
+        userID == myresult
         if len(myresult) == 1:
+            print(myresult)
             return dashboard()
         else:
             return render_template('index.html')
@@ -42,6 +46,18 @@ def dashboard():
       	return render_template('dashboard.html')
 
 @app.route('/insert', methods=["GET","POST"])
+def income():
+    if request.method == 'POST':
+        INOUT = request.form['INorOUT']
+        costo = request.form['cost']
+        data = request.form['data']
+        linked = request.form['linked']
+        category = request.form['cat']
+        mycursor = insert.cursor()
+        mycursor.execute("insert into activity values(default, %s, %s, %s, %s, %s)",(INOUT,costo,data,category,userID,))
+        return dashboard()
+
+@app.route('/insertgas', methods=["GET","POST"])
 def benz():
     if request.method == 'POST':
         costo = request.form['cost']

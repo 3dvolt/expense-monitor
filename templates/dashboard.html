@@ -99,10 +99,11 @@
                     <div class="modal-body">
                       <div class="text-center">
                         <i class="fas fa-chart-line fa-4x mb-3 animated rotateIn"></i>
-						<form action="/insert">
+						<form action="/insert" method="POST">
+						<input type="hidden" name="INorOUT" value="IN">
 						Costo: <input type="text" name="cost"><br>
 						Data: <input type="date" name="data"><br>
-						Collegamento a spesa: <input type="text" name="cost"><br>
+						Collegamento a spesa: <input type="checkbox" name="linked"><br>
 						Categoria:<select name="Cat">
 							<option value="refund">Refund</option>
 							<option value="stipendio">Stipendio</option>
@@ -133,10 +134,11 @@
                     <div class="modal-body">
                       <div class="text-center">
                         <i class="fas fa-coins fa-4x mb-3 animated rotateIn"></i>
-						<form action="/insert">
+						<form action="/insert" method="POST">
+						<input type="hidden" name="INorOUT" value="OUT">
 						Costo: <input type="text" name="cost"><br>
 						Data: <input type="date" name="data"><br>
-						Refund o altro: <input type="text" name="cost"><br>
+						Refund o altro: <input type="text" name="linked"><br>
 						Categoria:<select name="Cat">
 							<option value="refund">Refund</option>
 							<option value="stipendio">Stipendio</option>
@@ -167,7 +169,7 @@
                     <div class="modal-body">
                       <div  class="text-center">
                         <i class="fas fa-gas-pump fa-4x mb-3 animated rotateIn"></i>
-						<form action="/insert" method="POST">
+						<form action="/insertgas" method="POST">
 						Costo: <input type="number" name="cost"><br>
 						Costo per litro: <input type="number" step="any" name="litcost"><br>
 						Data: <input type="date" name="data"><br>
@@ -197,7 +199,7 @@
                     <div class="modal-body">
                       <div class="text-center">
                         <i class="fas fa-calendar-alt fa-4x mb-3 animated rotateIn"></i>
-						<form action="/insert">
+						<form action="/insert" method="POST">
 						Costo: <input type="text" name="cost"><br>
 						Data: <input type="date" name="data"><br>
 						Refund o altro: <input type="text" name="cost"><br>
