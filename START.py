@@ -31,7 +31,7 @@ def fuel():
         print(ultimoRif)
         templateData = {
 					'ultimoRif' : ultimoRif,
-					'Username' : Username
+					'Username' : username
 				}
         return render_template('gasoline.html',**templateData)
         
