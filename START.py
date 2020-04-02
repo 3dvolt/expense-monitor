@@ -26,11 +26,12 @@ def index():
 @app.route('/fuel')
 def fuel():
         mycursor = select.cursor()
-        mycursor.execute("SELECT f.data FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
+        mycursor.execute("SELECT f.data f.cost FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
         ultimoRif = mycursor.fetchall()
         print(ultimoRif)
         templateData = {
-					'ultimoRif' : ultimoRif,
+					'ultimoRif' : ultimoRif[0],
+                    'costultimoRif': ultimoRif[1],
 					'username' : username
 				}
         return render_template('gasoline.html',**templateData)
