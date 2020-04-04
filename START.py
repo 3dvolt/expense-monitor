@@ -52,7 +52,7 @@ def fuel():
         templateData = {
 					'ultimoRif' : ultimoRif[0][0],
                     'costultimoRif': ultimoRif[0][1],
-                    'litriKm': litriKm[-2],
+                    'litriKm': litriKm[-1],
                     'euromese' : cashmonth[1],
                     'mese' : months[currentMonth],
 					'username' : username
@@ -78,9 +78,11 @@ def usercheck():
 
 @app.route('/dashboard')
 def dashboard():
-        print(userID)
-        print(username)
-        return render_template('dashboard.html')
+    if username != "User":
+        templateData = {'username' : username}
+        return render_template('dashboard.html',**templateData)
+    else:
+        return render_template('index.html')
 
 @app.route('/insert', methods=["GET","POST"])
 def incomeOutgo():
