@@ -15,7 +15,6 @@
 <link href="{{ url_for('static',filename='css/style.min.css') }}" rel="stylesheet">
 <link href="{{ url_for('static',filename='css/calendar.css') }}" rel="stylesheet">
 </head>
-
 <body class="grey lighten-3">
   <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
@@ -27,9 +26,7 @@
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="nav-link waves-effect" href="/dashboard">Dashboard
@@ -39,8 +36,7 @@
               <a class="nav-link waves-effect" href="/tables" target="_blank">Tables</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link waves-effect" href="/settings"
-                target="_blank">Settings</a>
+              <a class="nav-link waves-effect" href="/settings" target="_blank">Settings</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link waves-effect" href="/fuel" target="_blank">Benzina</a>
@@ -63,7 +59,7 @@
   <div class="card-header">Consumo Litro/100</div>
   <div class="card-body">
     <h5 class="card-title">Stimato in data </h5>
-    <p class="card-title">Consumo </p>
+    <p class="card-title">Consumo {{ litriKm }}</p>
   </div>
 </div>
 
@@ -79,8 +75,8 @@
 <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
   <div class="card-header">Speso questo mese</div>
   <div class="card-body">
-    <h5 class="card-title">Nome Mese Data</h5>
-    <p class="card-text">Costo Totale</p>
+    <h5 class="card-title">{{ mese }}</h5>
+    <p class="card-text">{{ euromese }}</p>
   </div>
 </div>
 <div class="card text-white bg-success mb-3" style="max-width: 18rem;">

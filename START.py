@@ -1,9 +1,11 @@
 import os
+import datetime
 from flask import Flask, render_template, request
 import mysql.connector
 
 userID = 1
 username="User"
+currentMonth = datetime.datetime.today().month
 
 app = Flask(__name__)
 select = mysql.connector.connect(
@@ -26,12 +28,24 @@ def index():
 @app.route('/fuel')
 def fuel():
         mycursor = select.cursor()
-        mycursor.execute("SELECT f.data, f.cost FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
+        mycursor.execute("SELECT f.data, f.cash FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
         ultimoRif = mycursor.fetchall()
-        print(ultimoRif)
+        mycursor.execute("select f.data,f.cash from fuel f where MONTH(f.data) = %s", (currentMonth ,))
+        cashmonth = mycursor.fetchall()
+        mycursor.execute("SELECT * FROM fuel where FK_userId = %s ", (userID,))
+        query = mycursor.fetchall()
+        for x in range(len(query)):
+            litri = float(query[x][2]) / float(query[x][1])
+            km = 1
+            if x != len(query) - 1:
+                km = float(query[x + 1][3]) - float(query[x][3])
+            litriKm = litri / km
         templateData = {
 					'ultimoRif' : ultimoRif[0][0],
                     'costultimoRif': ultimoRif[0][1],
+                    'litriKm': litriKm,
+                    'euromese' : cashmonth,
+                    'mese' : currentMonth,
 					'username' : username
 				}
         return render_template('gasoline.html',**templateData)
