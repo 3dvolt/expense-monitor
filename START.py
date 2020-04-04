@@ -53,7 +53,7 @@ def fuel():
 					'ultimoRif' : ultimoRif[0][0],
                     'costultimoRif': ultimoRif[0][1],
                     'litriKm': litriKm[-1],
-                    'euromese' : cashmonth[1],
+                    'euromese' : cashmonth[0],
                     'mese' : months[currentMonth],
 					'username' : username
 				}
