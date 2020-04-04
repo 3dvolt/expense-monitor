@@ -6,7 +6,15 @@ import mysql.connector
 userID = 1
 username="User"
 currentMonth = datetime.datetime.today().month
-
+months = ["Unknown","January",
+          "Febuary",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September","October","November","December"]
 app = Flask(__name__)
 select = mysql.connector.connect(
   host="localhost",
@@ -30,22 +38,23 @@ def fuel():
         mycursor = select.cursor()
         mycursor.execute("SELECT f.data, f.cash FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
         ultimoRif = mycursor.fetchall()
-        mycursor.execute("select f.data,f.cash from fuel f where MONTH(f.data) = %s", (currentMonth ,))
+        mycursor.execute("select f.data,f.cash from fuel f where MONTH(f.data) = %s AND FK_userId = %s", (currentMonth ,userID,))
         cashmonth = mycursor.fetchall()
         mycursor.execute("SELECT * FROM fuel where FK_userId = %s ", (userID,))
         query = mycursor.fetchall()
+        litriKm =[]
         for x in range(len(query)):
             litri = float(query[x][2]) / float(query[x][1])
             km = 1
             if x != len(query) - 1:
                 km = float(query[x + 1][3]) - float(query[x][3])
-            litriKm = litri / km
+            litriKm.append( litri / km )
         templateData = {
 					'ultimoRif' : ultimoRif[0][0],
                     'costultimoRif': ultimoRif[0][1],
-                    'litriKm': litriKm,
-                    'euromese' : cashmonth,
-                    'mese' : currentMonth,
+                    'litriKm': litriKm[-2],
+                    'euromese' : cashmonth[1],
+                    'mese' : months[currentMonth],
 					'username' : username
 				}
         return render_template('gasoline.html',**templateData)
