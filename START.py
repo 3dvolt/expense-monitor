@@ -64,8 +64,8 @@ def usercheck():
         myresult = mycursor.fetchall()
         if len(myresult) == 1:
             session['loggedin'] = True
-            session['id'] = myresult['ID']
-            session['username'] = myresult['nome']
+            session['id'] = myresult[0][0]
+            session['username'] = myresult[0][1]
             global userID
             userID = myresult[0][0]
             global username
