@@ -63,16 +63,24 @@
     <p>Your account details are below:</p>
     <table>
         <tr>
-            <td>Username:</td>
-            <td>{{ account['username'] }}</td>
+            <td>Name:</td>
+            <td>{{ account[1] }}</td>
+        </tr>
+		<tr>
+            <td>Surname:</td>
+            <td>{{ account[2] }}</td>
         </tr>
         <tr>
-            <td>Password:</td>
-            <td>{{ account['password'] }}</td>
+            <td>UserName:</td>
+            <td>{{ account[3] }}</td>
         </tr>
         <tr>
             <td>Email:</td>
-            <td>{{ account['email'] }}</td>
+            <td>{{ account[4] }}</td>
+        </tr>
+		<tr>
+            <td>Change Password</td>
+            <td>Click Here</td>
         </tr>
     </table>
 </div>
