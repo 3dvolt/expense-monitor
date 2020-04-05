@@ -6,15 +6,7 @@ import mysql.connector
 userID = 1
 username="User"
 currentMonth = datetime.datetime.today().month
-months = ["Unknown","January",
-          "Febuary",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September","October","November","December"]
+months = ["Unknown","January","Febuary","March","April","May","June","July","August","September","October","November","December"]
 app = Flask(__name__)
 select = mysql.connector.connect(
   host="localhost",
@@ -49,14 +41,12 @@ def fuel():
             if x != len(query) - 1:
                 km = float(query[x + 1][3]) - float(query[x][3])
             litriKm.append( litri / km )
-        templateData = {
-					'ultimoRif' : ultimoRif[0][0],
+        templateData = {'ultimoRif' : ultimoRif[0][0],
                     'costultimoRif': ultimoRif[0][1],
                     'litriKm': litriKm[-1],
                     'euromese' : cashmonth[0],
                     'mese' : months[currentMonth],
-					'username' : username
-				}
+					'username' : username}
         return render_template('gasoline.html',**templateData)
         
 @app.route('/check',methods=["GET","POST"])
@@ -74,7 +64,7 @@ def usercheck():
             username = myresult[0][1]
             return dashboard()
         else:
-            return render_template('index.html')
+            return index()
 
 @app.route('/dashboard')
 def dashboard():
@@ -82,7 +72,7 @@ def dashboard():
         templateData = {'username' : username}
         return render_template('dashboard.html',**templateData)
     else:
-        return render_template('index.html')
+        return index()
 
 @app.route('/insert', methods=["GET","POST"])
 def incomeOutgo():
