@@ -107,6 +107,17 @@ def benz():
         insert.commit()
         return dashboard()
 
+@app.route('/settings')
+def profile():
+    if 'loggedin' in session:
+        mycursor = select.cursor()
+        mycursor.execute('SELECT * FROM user WHERE ID = %s', (session['id'],))
+        account = mycursor.fetchone()
+        return render_template('profile.html', account=account)
+    return index()
+
+
+
 @app.route('/logout')
 def logout():
         session.pop('loggedin', None)
