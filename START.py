@@ -3,13 +3,16 @@ import datetime
 from flask import Flask, render_template, request, session
 import mysql.connector
 
-app.secret_key = '12345678'
+
 
 userID = 1
 username="User"
 currentMonth = datetime.datetime.today().month
 months = ["Unknown","January","Febuary","March","April","May","June","July","August","September","October","November","December"]
 app = Flask(__name__)
+
+app.secret_key = '12345678'
+
 select = mysql.connector.connect(
   host="localhost",
   user="reader",
