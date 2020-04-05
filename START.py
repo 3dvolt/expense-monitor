@@ -3,6 +3,8 @@ import datetime
 from flask import Flask, render_template, request, session
 import mysql.connector
 
+app.secret_key = '12345678'
+
 userID = 1
 username="User"
 currentMonth = datetime.datetime.today().month
@@ -61,10 +63,10 @@ def usercheck():
             session['loggedin'] = True
             session['id'] = myresult['ID']
             session['username'] = myresult['nome']
-            #global userID
-            #userID = myresult[0][0]
-            #global username
-            #username = myresult[0][1]
+            global userID
+            userID = myresult[0][0]
+            global username
+            username = myresult[0][1]
             return dashboard()
         else:
             return index()
