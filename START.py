@@ -1,6 +1,6 @@
 import os
 import datetime
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 import mysql.connector
 
 userID = 1
@@ -58,18 +58,21 @@ def usercheck():
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
         if len(myresult) == 1:
-            global userID
-            userID = myresult[0][0]
-            global username
-            username = myresult[0][1]
+            session['loggedin'] = True
+            session['id'] = myresult['ID']
+            session['username'] = myresult['nome']
+            #global userID
+            #userID = myresult[0][0]
+            #global username
+            #username = myresult[0][1]
             return dashboard()
         else:
             return index()
 
 @app.route('/dashboard')
 def dashboard():
-    if username != "User":
-        templateData = {'username' : username}
+    if 'loggedin' in session:
+        templateData = {'username' : session['username']}
         return render_template('dashboard.html',**templateData)
     else:
         return index()
@@ -101,6 +104,9 @@ def benz():
 
 @app.route('/logout')
 def logout():
+        session.pop('loggedin', None)
+        session.pop('id', None)
+        session.pop('username', None)
         return render_template('logout.html')
 
 
