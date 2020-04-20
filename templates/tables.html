@@ -28,21 +28,21 @@
     </nav>
 	 </nav>
 	   </header>
-<table>
+<table class="table">
   <thead>
-  <th>ID</th>
-  <th>IN o OUT</th>
-    <th>Causale</th>
-    <th>Data</th>
-  <th>Categoria</th>
-  <th>Costo</th>
+  <th scope="col">ID</th>
+  <th scope="col">IN o OUT</th>
+    <th scope="col">Causale</th>
+    <th scope="col">Data</th>
+  <th scope="col">Categoria</th>
+  <th scope="col">Costo</th>
   </thead>
 
   <tbody>
   {% for row in mov %}
 <tr>
     {% for d in row %}
-    <td>{{ d }}</td>
+    <td scope="row">{{ d }}</td>
     {% endfor %}
 </tr>
 {% endfor %}
