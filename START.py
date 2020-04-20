@@ -28,10 +28,7 @@ insert = mysql.connector.connect(
 
 @app.route('/')
 def index():
-    if 'loggedin' in session:
-        dashboard()
-    else:
-      	return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/fuel')
 def fuel():
