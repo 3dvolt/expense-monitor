@@ -121,7 +121,7 @@ def tables():
     if 'loggedin' in session:
         mycursor = select.cursor()
         mycursor.execute('SELECT * FROM activity WHERE fk_UserId = %s', (session['id'],))
-        mov = mycursor.fetchone()
+        mov = mycursor.fetchall()
         print(mov)
         return render_template('tables.html', mov=mov)
     return index()

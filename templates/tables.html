@@ -10,8 +10,8 @@
   <tbody>
   {% for row in mov %}
 <tr>
-    {% for d in range(len(row)) %}
-    <td>{{ row[d] }}</td>
+    {% for d in row %}
+    <td>{{ str(d) }}</td>
     {% endfor %}
 </tr>
 {% endfor %}
