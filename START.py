@@ -116,6 +116,12 @@ def profile():
         return render_template('profile.html', account=account)
     return index()
 
+@app.route('/tables')
+def tables():
+    mycursor = select.cursor()
+    mycursor.execute('SELECT * FROM activity WHERE ID = %s', (session['id'],))
+    mov = mycursor.fetchone()
+    return render_template('tables.html',mov=mov)
 
 
 @app.route('/logout')

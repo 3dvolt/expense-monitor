@@ -1,0 +1,19 @@
+<table>
+  <thead>
+  <th>IN o OUT</th>
+    <th>Causale</th>
+    <th>Data</th>
+  <th>Categoria</th>
+  <th>Costo</th>
+  </thead>
+
+  <tbody>
+  {% for row in mov%}
+<tr>
+    {% for d in row %}
+    <td>{{ d }}</td>
+    {% endfor %}
+</tr>
+{% endfor %}    
+  </tbody>
+</table>
