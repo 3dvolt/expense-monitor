@@ -28,10 +28,14 @@ insert = mysql.connector.connect(
 
 @app.route('/')
 def index():
+    if 'loggedin' in session:
+        dashboard()
+    else:
       	return render_template('index.html')
 
 @app.route('/fuel')
 def fuel():
+    if 'loggedin' in session:
         mycursor = select.cursor()
         mycursor.execute("SELECT f.data, f.cash FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
         ultimoRif = mycursor.fetchall()
@@ -53,6 +57,8 @@ def fuel():
                     'mese' : months[currentMonth],
 					'username' : username}
         return render_template('gasoline.html',**templateData)
+    else:
+        index()
         
 @app.route('/check',methods=["GET","POST"])
 def usercheck():
@@ -120,7 +126,7 @@ def profile():
 def tables():
     if 'loggedin' in session:
         mycursor = select.cursor()
-        mycursor.execute('SELECT * FROM activity WHERE fk_UserId = %s', (session['id'],))
+        mycursor.execute('SELECT InorOut,causale,data,categoria,cost FROM activity WHERE fk_UserId = %s', (session['id'],))
         mov = mycursor.fetchall()
         return render_template('tables.html', mov=mov)
     return index()

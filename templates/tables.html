@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="utf-8">
 <link rel="icon" href="{{ url_for('static',filename='img/icon.ico') }}">
@@ -14,23 +13,49 @@
 <link href="C:/Users/diego/Documents/EXP/expense-monitor/static/css/calendar.css" rel="stylesheet">
 <link href="{{ url_for('static',filename='css/style.min.css') }}" rel="stylesheet">
 <link href="{{ url_for('static',filename='css/calendar.css') }}" rel="stylesheet">
-<link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
 </head>
+
 <body class="grey lighten-3">
   <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
       <div class="container-fluid">
         <a class="navbar-brand waves-effect" target="_blank">
           <strong class="blue-text">Expense </strong>
         </a>
-</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="/tables" >Tables</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="/settings" >Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="/fuel" >Gasoline</a>
+            </li>
+          </ul>
+		  <ul class="navbar-nav nav-flex-icons">
+			<li class="nav-item">
+              <a class="nav-link waves-effect" href="/logout">{{ username }} -- Logout</a>
+            </li>
+		  </ul>
+        </div>
+      </div>
     </nav>
-	 </nav>
-	   </header>
+  </header>
+    <div class="container-fluid mt-5 outer-div">
+      <div class="card mb-4 wow fadeIn">
+      </div>
+         <div class="col text-center row wow fadeIn">
 <table class="table">
   <thead>
-  <th scope="col">ID</th>
   <th scope="col">IN o OUT</th>
     <th scope="col">Causale</th>
     <th scope="col">Data</th>
@@ -48,7 +73,8 @@
 {% endfor %}
   </tbody>
 </table>
-
+      </div>
+    </div>
 	 </body>
   <footer class="footer primary-color-dark darken-2 ">
     <div class="py-3 text-center">
@@ -62,7 +88,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.11.0/js/mdb.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}"></script>
-<script type="text/javascript" src="C:/Users/diego/Documents/EXP/static/js/main.js"></script>
+<script type="text/javascript" src="C:/Users/diego/Documents/EXP/static/expense-monitor//js/main.js"></script>
 <script type="text/javascript">
     new WOW().init();
   </script>
