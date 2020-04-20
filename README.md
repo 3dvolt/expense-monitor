@@ -1,2 +1,3 @@
 # expense-monitor
-A simple expense monitor in python in and out income
+A simple expense monitor in python
+Flask server, Mysql DB 
