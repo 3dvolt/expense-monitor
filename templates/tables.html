@@ -8,12 +8,12 @@
   </thead>
 
   <tbody>
-  {% for row in mov%}
+  {% for row in mov %}
 <tr>
-    {% for d in row %}
-    <td>{{ d }}</td>
+    {% for d in range(len(row)) %}
+    <td>{{ row[d] }}</td>
     {% endfor %}
 </tr>
-{% endfor %}    
+{% endfor %}
   </tbody>
 </table>

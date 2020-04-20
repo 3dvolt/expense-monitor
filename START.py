@@ -118,11 +118,13 @@ def profile():
 
 @app.route('/tables')
 def tables():
-    mycursor = select.cursor()
-    mycursor.execute('SELECT * FROM activity WHERE ID = %s', (session['id'],))
-    mov = mycursor.fetchone()
-    return render_template('tables.html',mov=mov)
-
+    if 'loggedin' in session:
+        mycursor = select.cursor()
+        mycursor.execute('SELECT * FROM activity WHERE fk_UserId = %s', (session['id'],))
+        mov = mycursor.fetchone()
+        print(mov)
+        return render_template('tables.html', mov=mov)
+    return index()
 
 @app.route('/logout')
 def logout():
