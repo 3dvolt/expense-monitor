@@ -81,11 +81,11 @@ def usercheck():
 def dashboard():
     if 'loggedin' in session:
         mycursor = select.cursor()
-        mycursor.execute("select a.data,a.cost,a.causale from activity a where FK_userId= %s AND INorOUT=’IN’", (userID,))
+        mycursor.execute("select a.data,a.cost,a.causale from activity a where FK_userId= %s AND INorOUT='IN'", (userID,))
         IN = mycursor.fetchall()
         mycursor.execute("select f.data,f.cash from fuel f where FK_userId= %s",(userID,))
         OUT = mycursor.fetchall()
-        mycursor.execute("select a.data,a.cost,a.causale from activity a where FK_userId= %s AND INorOUT=’OUT’", (userID,))
+        mycursor.execute("select a.data,a.cost,a.causale from activity a where FK_userId= %s AND INorOUT='OUT'", (userID,))
         Fuel = mycursor.fetchall()
         templateData = {'username' : session['username'],'IN':IN,'OUT':OUT,'Fuel' : Fuel}
         return render_template('dashboard.html',**templateData)
