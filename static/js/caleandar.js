@@ -1,8 +1,3 @@
-/*
-  Author: Jack Ducasse;
-  Version: 0.1.0;
-  (◠‿◠✿)
-*/
 var Calendar = function(model, options, date){
   // Default Values
   this.Options = {
@@ -239,7 +234,7 @@ function createCalendar(calendar, element, adjuster){
             }
             title.appendChild(a);
           }else{
-            title.innerHTML += '<a href="' + calendar.Model[n].Link + '">' + calendar.Model[n].Title + '</a>';
+            title.innerHTML +=  calendar.Model[n].Title + '</a>';
           }
           number.appendChild(title);
         }

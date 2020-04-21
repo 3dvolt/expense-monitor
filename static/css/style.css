@@ -1,3 +1,18 @@
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.block:hover {
+  background-color: #ddd;
+  color: black;
+}
 .sidebar-fixed {
   height: 100vh;
   width: 270px;
@@ -45,6 +60,7 @@ background-color: #8ebf42
 	  -webkit-transform: translate(-50%, -50%);
 	  transform: translate(-50%, -50%);
 	}
+	
 	.centerr {
 	  position: absolute;
 	  left: 50%;

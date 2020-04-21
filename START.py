@@ -87,7 +87,17 @@ def dashboard():
         OUT = mycursor.fetchall()
         mycursor.execute("select a.data,a.cost,a.causale from activity a where FK_userId= %s AND INorOUT='OUT'", (userID,))
         Fuel = mycursor.fetchall()
-        templateData = {'username' : session['username'],'IN':IN,'OUT':OUT,'Fuel' : Fuel}
+        d = ""
+        for x in Fuel:
+            datee = ' new Date(' + str(x[0]).replace('-', ',') + ')'
+            d += "{'Date':" + datee + ", 'Title': '-" + x[1] + " Benzina' },"
+        for x in OUT:
+            datee = ' new Date(' + str(x[0]).replace('-', ',') + ')'
+            d += "{'Date':" + datee + ", 'Title': '-" + x[1] + ' ' + x[2] + " '},"
+        for x in IN:
+            datee = ' new Date(' + str(x[0]).replace('-', ',') + ')'
+            d += "{'Date':" + datee + ", 'Title': '+" + x[1] + ' ' + x[2] + "'},"
+        templateData = {'username' : session['username'],'calend': d}
         return render_template('dashboard.html',**templateData)
     else:
         return index()
