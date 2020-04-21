@@ -84,9 +84,9 @@ def dashboard():
         mycursor.execute("select a.data,a.cost,a.causale from activity a where FK_userId= %s AND INorOUT='IN'", (userID,))
         IN = mycursor.fetchall()
         mycursor.execute("select f.data,f.cash from fuel f where FK_userId= %s",(userID,))
-        OUT = mycursor.fetchall()
-        mycursor.execute("select a.data,a.cost,a.causale from activity a where FK_userId= %s AND INorOUT='OUT'", (userID,))
         Fuel = mycursor.fetchall()
+        mycursor.execute("select a.data,a.cost,a.causale from activity a where FK_userId= %s AND INorOUT='OUT'", (userID,))
+        OUT = mycursor.fetchall()
         d = ""
         for x in Fuel:
             datee = ' new Date(' + str(x[0]).replace('-', ',') + ')'

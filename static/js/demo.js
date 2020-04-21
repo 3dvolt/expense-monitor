@@ -12,6 +12,8 @@ var events = [
 {'Date': new Date(2020,04,19), 'Title': '+132 -'},
 {'Date': new Date(2020,04,19), 'Title': '+13233 -'},
 
+{{ calend }}
+
 ];
 
 var settings = {};
