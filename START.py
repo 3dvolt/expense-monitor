@@ -80,7 +80,14 @@ def usercheck():
 @app.route('/dashboard')
 def dashboard():
     if 'loggedin' in session:
-        templateData = {'username' : session['username']}
+        mycursor = select.cursor()
+        mycursor.execute("select a.data,a.cost,a.casuale from activity a where FK_userId= %s AND INorOUT=’IN’", (userID,))
+        IN = mycursor.fetchall()
+        mycursor.execute("select f.data,f.cash from fuel f where FK_userId= %s",(userID,))
+        OUT = mycursor.fetchall()
+        mycursor.execute("select a.data,a.cost,a.casuale from activity a where FK_userId= %s AND INorOUT=’OUT’", (userID,))
+        Fuel = mycursor.fetchall()
+        templateData = {'username' : session['username'],'IN':IN,'OUT':OUT,'Fuel' : Fuel}
         return render_template('dashboard.html',**templateData)
     else:
         return index()
@@ -116,7 +123,8 @@ def profile():
         mycursor = select.cursor()
         mycursor.execute('SELECT * FROM user WHERE ID = %s', (session['id'],))
         account = mycursor.fetchone()
-        return render_template('profile.html', account=account)
+        templateData = {'username': session['username']}
+        return render_template('profile.html',**templateData, account=account)
     return index()
 
 @app.route('/tables')
