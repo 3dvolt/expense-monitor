@@ -10,10 +10,8 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.11.0/css/mdb.min.css" rel="stylesheet">
-<link href="C:/Users/diego/Documents/EXP/static/css/style.min.css" rel="stylesheet">
-<link href="C:/Users/diego/Documents/EXP/static/css/calendar.css" rel="stylesheet">
-<link href="{{ url_for('static',filename='css/style.min.css') }}" rel="stylesheet">
-<link href="{{ url_for('static',filename='css/calendar.css') }}" rel="stylesheet">
+<link href="C:/Users/diego/Documents/EXP/expense-monitor/static/css/style.css" rel="stylesheet">
+<link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
 </head>
 
 <body class="grey lighten-3">
@@ -36,41 +34,30 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link waves-effect" href="/tables" target="_blank">Tables</a>
+              <a class="nav-link waves-effect" href="/tables">Tables</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link waves-effect" href="/settings"
-                target="_blank">Settings</a>
+              <a class="nav-link waves-effect" href="/settings">Settings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link waves-effect" href="/fuel" target="_blank">Benzina</a>
+              <a class="nav-link waves-effect" href="/fuel">Benzina</a>
             </li>
           </ul>
-		  <ul class="navbar-nav nav-flex-icons">
-			<li class="nav-item active">
-              <a class="nav-link waves-effect" href="logout" target="_blank">Logout</a>
-            </li>
-		  </ul>
         </div>
       </div>
     </nav>
   </header>
-   <div class="containe-fluid mt-5">
- <h1>Successfull logout</h1>
+    <div class="container-fluid mt-5 outer-div">
+      <div class="card mb-4 wow fadeIn">
+      </div>
+ <h1  class="centerr">Successfull logout</h1>
  </div>
-  <footer class="footer text-center primary-color-dark darken-2">
-    <div class="py-3">
-     <a> © 2020 Copyright: 3D Volt</a>
-    </div>
-  </footer>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.11.0/js/mdb.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}"></script>
-<script type="text/javascript" src="C:/Users/diego/Documents/EXP/static/js/main.js"></script>
 <script type="text/javascript">
     new WOW().init();
   </script>
