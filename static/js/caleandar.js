@@ -183,7 +183,6 @@ function createCalendar(calendar, element, adjuster){
 
       var number = DayNumber((calendar.Prev.Days - calendar.Selected.FirstDay) + (i+1));
       day.appendChild(number);
-
       days.appendChild(day);
     }
     // Current Month's Days
@@ -201,11 +200,12 @@ function createCalendar(calendar, element, adjuster){
       // Check Date against Event Dates
       for(var n = 0; n < calendar.Model.length; n++){
         var evDate = calendar.Model[n].Date;
-        var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month, (i+1));
+        var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month+1, (i+1));
+		var TextColor = calendar.Model[n].Color;
         if(evDate.getTime() == toDate.getTime()){
           number.className += " eventday";
           var title = document.createElement('span');
-          title.className += "cld-title";
+          title.className += "cld-title "+ TextColor;
           if(typeof calendar.Model[n].Link == 'function' || calendar.Options.EventClick){
             var a = document.createElement('a');
             a.setAttribute('href', '#');

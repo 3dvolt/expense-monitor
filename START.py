@@ -90,13 +90,13 @@ def dashboard():
         d = ''
         for x in Fuel:
             datee = ' new Date(' + str(x[0]).replace('-', ',') + ')'
-            d += "{'Date':" + datee + ", 'Title': '-" + x[1] + " Benzina' },"
+            d += "{'Date':" + datee + ", 'Title': '-" + x[1] + " Benzina' , 'Color': 'blue'},"
         for x in OUT:
             datee = ' new Date(' + str(x[0]).replace('-', ',') + ')'
-            d += "{'Date':" + datee + ", 'Title': '-" + x[1] + ' ' + x[2] + " '},"
+            d += "{'Date':" + datee + ", 'Title': '-" + x[1] + ' ' + x[2] + " ' , 'Color': 'red'},"
         for x in IN:
             datee = ' new Date(' + str(x[0]).replace('-', ',') + ')'
-            d += "{'Date':" + datee + ", 'Title': '+" + x[1] + ' ' + x[2] + "'},"
+            d += "{'Date':" + datee + ", 'Title': '+" + x[1] + ' ' + x[2] + "', 'Color': 'green'},"
         templateData = {'username' : session['username'],'calend': d}
         return render_template('dashboard.html',**templateData)
     else:
