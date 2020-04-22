@@ -87,7 +87,7 @@ def dashboard():
         Fuel = mycursor.fetchall()
         mycursor.execute("select a.data,a.cost,a.causale from activity a where FK_userId= %s AND INorOUT='OUT'", (userID,))
         OUT = mycursor.fetchall()
-        d = ""
+        d = ''
         for x in Fuel:
             datee = ' new Date(' + str(x[0]).replace('-', ',') + ')'
             d += "{'Date':" + datee + ", 'Title': '-" + x[1] + " Benzina' },"
@@ -134,7 +134,7 @@ def profile():
         mycursor.execute('SELECT * FROM user WHERE ID = %s', (session['id'],))
         account = mycursor.fetchone()
         templateData = {'username': session['username']}
-        return render_template('profile.html',**templateData, account=account)
+        return render_template('profile.html', **templateData, account=account)
     return index()
 
 @app.route('/tables')
