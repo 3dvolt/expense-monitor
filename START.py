@@ -53,7 +53,6 @@ def fuel():
                     'euromese' : cashmonth[0],
                     'mese' : months[currentMonth],
 					'username' : username}
-        select.close()
         return render_template('gasoline.html',**templateData)
     else:
         index()
