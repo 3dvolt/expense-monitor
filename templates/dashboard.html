@@ -93,9 +93,9 @@
                         <i class="fas fa-chart-line fa-4x mb-3 animated rotateIn"></i>
 						<form action="/insert" method="POST">
 						<input type="hidden" name="INorOUT" value="IN">
-						Costo: <input type="text" name="cost"><br>
+						Costo: <input type="number" name="cost"><br>
 						Data: <input type="date" name="data"><br>
-						Collegamento a spesa: <input type="checkbox" name="linked"><br>
+						Causale: <input type="text" name="linked"><br>
 						Categoria:<select name="Cat">
 							<option value="refund">Refund</option>
 							<option value="stipendio">Stipendio</option>
@@ -128,14 +128,14 @@
                         <i class="fas fa-coins fa-4x mb-3 animated rotateIn"></i>
 						<form action="/insert" method="POST">
 						<input type="hidden" name="INorOUT" value="OUT">
-						Costo: <input type="text" name="cost"><br>
+						Costo: <input type="number" name="cost"><br>
 						Data: <input type="date" name="data"><br>
-						Refund o altro: <input type="text" name="linked"><br>
+						Causale: <input type="text" name="linked"><br>
 						Categoria:<select name="Cat">
-							<option value="refund">Refund</option>
-							<option value="stipendio">Stipendio</option>
-							<option value="extra">Lavoro Extra</option>
-							<option value="vendita">Vendita</option>
+							<option value="Shopping">Shopping</option>
+							<option value="Investimento">Investimento</option>
+							<option value="Alimenti">Alimenti</option>
+							<option value="Spedizioni">Spedizioni</option>
 						</select><br>
                     <div >
                       <input class="btn btn-info" type="submit" value="Save"> 

@@ -109,10 +109,10 @@ def incomeOutgo():
         inout = request.form['INorOUT']
         costo = request.form['cost']
         data = request.form['data']
-        #linked = request.form['linked']
+        linked = request.form['linked']
         category = request.form['Cat']
         mycursor = insert.cursor()
-        mycursor.execute("insert into activity values(default, %s, %s, '-', %s, %s, %s)",(inout,costo,data,category,userID,))
+        mycursor.execute("insert into activity values(default, %s, %s, %s, %s, %s, %s)",(inout,costo,linked,data,category,userID,))
         insert.commit()
         return dashboard()
 
