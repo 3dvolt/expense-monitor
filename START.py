@@ -43,7 +43,8 @@ def fuel():
             litri = float(query[x][2]) / float(query[x][1])
             print(x)
             print(litri)
-            if x != len(query):
+            a= len(query)-1
+            if x != a:
                 km = float(query[x+1][3]) - float(query[x][3])    
                 consumo = litri/km
                 litriKm.append(round(consumo,2))
