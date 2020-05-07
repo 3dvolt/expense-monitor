@@ -1,9 +1,6 @@
-import os
 import datetime
 from flask import Flask, render_template, request, session
 import mysql.connector
-
-
 
 userID = 1
 username="User"
@@ -36,7 +33,7 @@ def fuel():
         mycursor = select.cursor()
         mycursor.execute("SELECT f.data, f.cash FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
         ultimoRif = mycursor.fetchall()
-        mycursor.execute("select f.data,f.cash from fuel f where MONTH(f.data) = %s AND FK_userId = %s", (currentMonth ,userID,))
+        mycursor.execute("select f.data,f.cash from fuel f where MONTH(f.data) = %s AND FK_userId = %s", (3 ,userID,))
         cashmonth = mycursor.fetchall()
         mycursor.execute("SELECT * FROM fuel where FK_userId = %s ", (userID,))
         query = mycursor.fetchall()
@@ -156,4 +153,5 @@ def logout():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=80, debug=False)
+
 
