@@ -31,7 +31,7 @@ def index():
 def fuel():
     if 'loggedin' in session:
         mycursor = select.cursor()
-        mycursor.execute("SELECT f.data, f.cash FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
+        mycursor.execute("SELECT f.data, f.cash FROM fuel f where FK_userId = %s order by ID desc LIMIT 2", (userID,))
         ultimoRif = mycursor.fetchall()
         mycursor.execute("select f.data,f.cash from fuel f where MONTH(f.data) = %s AND FK_userId = %s", (currentMonth ,userID,))
         cashmonth = mycursor.fetchall()
@@ -40,7 +40,6 @@ def fuel():
         mycursor.execute("SELECT * FROM fuel where FK_userId = %s ", (userID,))
         query = mycursor.fetchall()
         litriKm =[]
-        print(query)
         for x in range(len(query)):
             litri = float(query[x][2]) / float(query[x][1])
             a= len(query)-1
@@ -48,7 +47,8 @@ def fuel():
                 km = float(query[x+1][3]) - float(query[x][3])    
                 consumo = litri/km
                 litriKm.append(round(consumo,4))
-        templateData = {'ultimoRif' : ultimoRif[0][0],
+        templateData = {'penultimoRif' : ultimoRif[0][0],
+                    'ultimoRif' : ultimoRif[0][1],
                     'costultimoRif': ultimoRif[0][1],
                     'litriKm': litriKm[-1],
                     'euromese' : cashmonth[0][1],
