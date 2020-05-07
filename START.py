@@ -38,6 +38,7 @@ def fuel():
         mycursor.execute("SELECT * FROM fuel where FK_userId = %s ", (userID,))
         query = mycursor.fetchall()
         litriKm =[]
+        print(query)
         for x in range(len(query)):
             litri = float(query[x][2]) / float(query[x][1])
             km = 1
