@@ -47,8 +47,18 @@ def fuel():
                 km = float(query[x+1][3]) - float(query[x][3])    
                 consumo = litri/km
                 litriKm.append(round(consumo,4))
+<<<<<<< Updated upstream
         templateData = {'penultimoRif' : ultimoRif[1][0],
                     'ultimoRif' : ultimoRif[0][0],
+=======
+<<<<<<< b0377781a4dec09adda12a13fc87c2b14bb3fd12
+        templateData = {'penultimoRif' : ultimoRif[0][0],
+                    'ultimoRif' : ultimoRif[0][1],
+=======
+        templateData = {'penultimoRif' : ultimoRif[1][0],
+                    'ultimoRif' : ultimoRif[0][0],
+>>>>>>> reverse
+>>>>>>> Stashed changes
                     'costultimoRif': ultimoRif[0][1],
                     'litriKm': litriKm[-1],
                     'euromese' : cashmonth[0][1],
