@@ -30,12 +30,13 @@ def index():
 @app.route('/fuel')
 def fuel():
     if 'loggedin' in session:
-        cashmonth=[[0,0]]
         mycursor = select.cursor()
         mycursor.execute("SELECT f.data, f.cash FROM fuel f where FK_userId = %s order by ID desc LIMIT 1", (userID,))
         ultimoRif = mycursor.fetchall()
         mycursor.execute("select f.data,f.cash from fuel f where MONTH(f.data) = %s AND FK_userId = %s", (currentMonth ,userID,))
         cashmonth = mycursor.fetchall()
+        if cashmonth == []:
+            cashmonth=[[0,0]]
         mycursor.execute("SELECT * FROM fuel where FK_userId = %s ", (userID,))
         query = mycursor.fetchall()
         litriKm =[]
