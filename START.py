@@ -41,8 +41,11 @@ def fuel():
         print(query)
         for x in range(len(query)):
             litri = float(query[x][2]) / float(query[x][1])
+            print(x)
+            print(litri)
+            print(consumo)
             if x != len(query):
-                km = float(query[x + 1][3]) - float(query[x][3])    
+                km = float(query[x+1][3]) - float(query[x][3])    
             consumo = litri/km
             litriKm.append(round(consumo,2))
         templateData = {'ultimoRif' : ultimoRif[0][0],
