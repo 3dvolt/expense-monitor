@@ -43,13 +43,15 @@ def fuel():
             km = 1
             if x != len(query) - 1:
                 km = float(query[x + 1][3]) - float(query[x][3])
-            litriKm.append( litri / km )
+            consumo = litri/km
+            litriKm.append(round(consumo,2))
         templateData = {'ultimoRif' : ultimoRif[0][0],
                     'costultimoRif': ultimoRif[0][1],
                     'litriKm': litriKm[-1],
-                    'euromese' : cashmonth[0],
+                    'euromese' : cashmonth[0][1],
                     'mese' : months[currentMonth],
-					'username' : username}
+					'username' : username,
+                    'kmtot': km}
         return render_template('gasoline.html',**templateData)
     else:
         index()

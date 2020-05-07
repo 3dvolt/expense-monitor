@@ -11,9 +11,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.11.0/css/mdb.min.css" rel="stylesheet">
 <link href="C:/Users/diego/Documents/EXP/static/css/style.min.css" rel="stylesheet">
-<link href="C:/Users/diego/Documents/EXP/static/css/calendar.css" rel="stylesheet">
 <link href="{{ url_for('static',filename='css/style.min.css') }}" rel="stylesheet">
-<link href="{{ url_for('static',filename='css/calendar.css') }}" rel="stylesheet">
 </head>
 <body class="grey lighten-3">
   <header>
@@ -57,34 +55,34 @@
       </div>
 <div class="row wow fadeIn">
  <div class ="card text-white bg-primary mb-3" style="max-width: 18rem; margin: 20px;">
-  <div class="card-header">Consumo Litro/100</div>
+  <div class="card-header">Consumo Litro/100km </div>
   <div class="card-body">
-    <h5 class="card-title">Stimato in data </h5>
+    <h5 class="card-title">Stimato in data: {{ ultimoRif }} </h5>
     <p class="card-title">Consumo {{ litriKm }}</p>
   </div>
 </div>
 <div class="card text-white bg-success mb-3 " style="max-width: 18rem; margin: 20px;">
-  <div class="card-header">Ultimo Rifornimento</div>
+  <div class="card-header">Ultimo Rifornimento:</div>
   <div class="card-body">
     <h5 class="card-title">{{ ultimoRif }}</h5>
-    <p class="card-text">Costo : {{ costultimoRif }}</p>
+    <p class="card-text">Spesi : {{ costultimoRif }} Euro</p>
   </div>
 </div>
 </div>
 
 <div class="row wow fadeIn">
 <div class = "card text-white bg-primary mb-3" style="max-width: 18rem; margin: 20px;">
-  <div class="card-header">Speso questo mese</div>
+  <div class="card-header">Speso nel mese di:</div>
   <div class="card-body">
     <h5 class="card-title">{{ mese }}</h5>
-    <p class="card-text">{{ euromese }}</p>
+    <p class="card-text">{{ euromese }} Euro</p>
   </div>
   </div>
 <div class="card text-white bg-success mb-3" style="max-width: 18rem; margin: 20px;">
   <div class="card-header">Km Percorsi ultimo rifornimento</div>
   <div class="card-body">
-    <h5 class="card-title">Data Rifornimento</h5>
-    <p class="card-text">Km Totale</p>
+    <h5 class="card-title">{{ ultimoRif }}</h5>
+    <p class="card-text">Km Totali : {{ kmtot }}</p>
   </div>
 </div>
 </div>
