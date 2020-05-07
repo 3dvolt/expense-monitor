@@ -48,7 +48,7 @@ def fuel():
                 consumo = litri/km
                 litriKm.append(round(consumo,4))
         templateData = {'penultimoRif' : ultimoRif[0][0],
-                    'ultimoRif' : ultimoRif[0][1],
+                    'ultimoRif' : ultimoRif[1][0],
                     'costultimoRif': ultimoRif[0][1],
                     'litriKm': litriKm[-1],
                     'euromese' : cashmonth[0][1],
