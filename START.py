@@ -47,6 +47,7 @@ def fuel():
                 km = float(query[x+1][3]) - float(query[x][3])    
                 consumo = litri/km
                 litriKm.append(round(consumo,4))
+	mycursor.close()
         templateData = {'penultimoRif' : ultimoRif[1][0],
                     'ultimoRif' : ultimoRif[0][0],
                     'costultimoRif': ultimoRif[0][1],
@@ -67,6 +68,7 @@ def usercheck():
         mycursor = select.cursor()
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
+	mycursor.close()
         if len(myresult) == 1:
             session['loggedin'] = True
             session['id'] = myresult[0][0]
@@ -100,6 +102,7 @@ def dashboard():
             datee = ' new Date(' + str(x[0]).replace('-', ',') + ')'
             d += "{'Date':" + datee + ", 'Title': '+" + x[1] + ' ' + x[2] + "', 'Color': 'green'},"
         templateData = {'username' : session['username'],'calend': d}
+	mycursor.close()
         return render_template('dashboard.html',**templateData)
     else:
         return index()
@@ -115,6 +118,7 @@ def incomeOutgo():
         mycursor = insert.cursor()
         mycursor.execute("insert into activity values(default, %s, %s, %s, %s, %s, %s)",(inout,costo,linked,data,category,userID,))
         insert.commit()
+	mycursor.close()
         return dashboard()
 
 @app.route('/insertgas', methods=["GET","POST"])
@@ -127,6 +131,7 @@ def benz():
         mycursor = insert.cursor()
         mycursor.execute("Insert into fuel values(default, %s ,%s ,%s ,%s ,%s)",(costoLitro,costo,kmauto,data,userID,))
         insert.commit()
+	mycursor.close()
         return dashboard()
 
 @app.route('/settings')
@@ -136,6 +141,7 @@ def profile():
         mycursor.execute('SELECT * FROM user WHERE ID = %s', (session['id'],))
         account = mycursor.fetchone()
         templateData = {'username': session['username']}
+	mycursor.close()
         return render_template('profile.html', **templateData, account=account)
     return index()
 
@@ -145,6 +151,7 @@ def tables():
         mycursor = select.cursor()
         mycursor.execute('SELECT InorOut,causale,data,categoria,cost FROM activity WHERE fk_UserId = %s', (session['id'],))
         mov = mycursor.fetchall()
+	mycursor.close()
         return render_template('tables.html', mov=mov)
     return index()
 
