@@ -39,6 +39,7 @@ def fuel():
             cashmonth=[[0,0]]
         mycursor.execute("SELECT * FROM fuel where FK_userId = %s ", (userID,))
         query = mycursor.fetchall()
+        mycursor.close()
         litriKm =[]
         for x in range(len(query)):
             litri = float(query[x][2]) / float(query[x][1])
@@ -47,7 +48,6 @@ def fuel():
                 km = float(query[x+1][3]) - float(query[x][3])    
                 consumo = litri/km
                 litriKm.append(round(consumo,4))
-	    mycursor.close()
         templateData = {'penultimoRif' : ultimoRif[1][0],
                     'ultimoRif' : ultimoRif[0][0],
                     'costultimoRif': ultimoRif[0][1],
