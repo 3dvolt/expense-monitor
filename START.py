@@ -68,7 +68,7 @@ def usercheck():
         mycursor = select.cursor()
         mycursor.execute("SELECT * FROM user u WHERE u.username = %s and u.psw = %s",(email,password,))
         myresult = mycursor.fetchall()
-	    mycursor.close()
+        mycursor.close()
         if len(myresult) == 1:
             session['loggedin'] = True
             session['id'] = myresult[0][0]
