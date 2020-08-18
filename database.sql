@@ -12,13 +12,15 @@ CREATE TABLE `activity` (
   `data` date NOT NULL,
   `categoria` varchar(50) NOT NULL,
   `FK_userId` int(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `FK_userId` (`FK_userId`),
-  CONSTRAINT `FK_userId` FOREIGN KEY (`FK_userId`) REFERENCES `user` (`ID`)
+  PRIMARY KEY (`ID`)
+
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
+ALTER TABLE `activity` 
+ADD CONSTRAINT `FK_userId` FOREIGN KEY (`FK_userId`) REFERENCES `user` (`ID`)
 
-DROP TABLE IF EXISTS `fuel`;
+
+DROP TABLE IF EXISTS ``;
 CREATE TABLE `fuel` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CostLit` varchar(50) NOT NULL,
@@ -27,10 +29,10 @@ CREATE TABLE `fuel` (
   `data` date NOT NULL,
   `FK_userId` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
-  KEY `FK-userId` (`FK_userId`),
-  CONSTRAINT `FK-userId` FOREIGN KEY (`FK_userId`) REFERENCES `user` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
+ALTER TABLE `fuel` 
+ADD CONSTRAINT `FK-userId` FOREIGN KEY (`FK_userId`) REFERENCES `user` (`ID`)
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -42,4 +44,3 @@ CREATE TABLE `user` (
   `psw` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
